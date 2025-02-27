@@ -4,28 +4,29 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-    <display-name>Struts User Management</display-name>
+	<display-name>Struts User Management</display-name>
 
-    <servlet>
-        <servlet-name>action</servlet-name>
-        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-        <init-param>
-            <param-name>config</param-name>
-            <param-value>/WEB-INF/struts-config.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+	<servlet>
+		<servlet-name>struts</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
-    <servlet-mapping>
-        <servlet-name>action</servlet-name>
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>struts</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
-    <session-config>
-        <session-timeout>30</session-timeout>
-    </session-config>
 
-    <welcome-file-list>
-        <welcome-file>pages/user-list.jsp</welcome-file>
-    </welcome-file-list>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>pages/user-list.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

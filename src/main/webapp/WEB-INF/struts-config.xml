@@ -4,26 +4,30 @@
     "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 
 <struts-config>
-	<form-beans>
-		<form-bean name="userForm"
-			type="com.example.common.form.UserForm" />
-	</form-beans>
+    <form-beans>
+        <form-bean name="userForm" type="com.example.common.form.UserForm" />
+    </form-beans>
 
-	<action-mappings>
-		<action path="/user"
-			type="com.example.common.action.UserAction" parameter="method"
-			name="userForm" validate="false" input="/pages/user-form.jsp">
+    <action-mappings>
+        <action path="/user/create"
+            type="com.example.common.action.UserAction" 
+            name="userForm"
+            parameter="create"
+            validate="false"
+            input="/pages/user-form.jsp">
+            <forward name="create" path="/pages/user-form.jsp" />
+            <forward name="success" path="/pages/success.jsp" />
+            <forward name="failure" path="/pages/user-form.jsp" />
+        </action>
 
-			<forward name="list" path="/pages/user-list.jsp" />
-			<forward name="create" path="/pages/user-form.jsp" />
-			<forward name="success" path="/pages/success.jsp" />
-			<forward name="failure" path="/pages/user-form.jsp" />
-		</action>
-	</action-mappings>
+        <action path="/user/list"
+            type="com.example.common.action.UserAction" 
+            parameter="list"
+            name="userForm" 
+            validate="false">
+            <forward name="list" path="/pages/user-list.jsp" />
+        </action>
 
+    </action-mappings>
 
-
-
-	<message-resources
-		parameter="com.example.common.properties.Common" />
 </struts-config>

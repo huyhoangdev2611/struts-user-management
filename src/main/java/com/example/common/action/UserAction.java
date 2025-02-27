@@ -1,16 +1,18 @@
 package com.example.common.action;
 
-import com.example.common.dao.UserDAO;
-import com.example.common.model.User;
-import com.example.common.form.UserForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.*;
-import org.apache.struts.actions.DispatchAction;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.actions.MappingDispatchAction;
 
-import java.util.List;
+import com.example.common.dao.UserDAO;
+import com.example.common.form.UserForm;
+import com.example.common.model.User;
 
-public class UserAction extends DispatchAction {
+import org.apache.struts.action.ActionMapping;
+
+public class UserAction extends MappingDispatchAction {
 
     public ActionForward list(ActionMapping mapping, ActionForm form,
                               HttpServletRequest request, HttpServletResponse response) {
