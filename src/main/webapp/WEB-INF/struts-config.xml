@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="userForm" type="com.example.common.form.UserForm" />
+    </form-beans>
+
+    <action-mappings>
+        <action path="/listUsers"
+            type="com.example.common.action.UserListAction" 
+            validate="false">
+            <forward name="success" path="/pages/user-list.jsp" />
+        </action>
+
+        <action path="/createUser"
+            type="com.example.common.action.UserCreateAction" 
+            name="userForm"
+            validate="false" 
+            input="/pages/user-form.jsp">
+            <forward name="success" path="/pages/success.jsp" />
+            <forward name="failure" path="/pages/user-form.jsp" />
+        </action>
+    </action-mappings>
+
+    <message-resources parameter="com.example.common.properties.Common" />
+</struts-config>

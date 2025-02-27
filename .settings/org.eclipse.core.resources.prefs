@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/example/common/action/UserCreateAction.java=UTF-8
+encoding//src/main/java/com/example/common/action/UserListAction.java=UTF-8
+encoding//src/main/java/com/example/common/dao/UserDAO.java=UTF-8
+encoding//src/main/resources/com/example/common/properties/Common_de.properties=UTF-8
+encoding//src/main/resources/com/example/common/properties/Common_fr.properties=UTF-8
+encoding//src/main/resources/com/example/common/properties/Common_zh_CN.properties=UTF-8
+encoding//src/main/webapp/pages/success.jsp=UTF-8
+encoding//src/main/webapp/pages/user-form.jsp=UTF-8
+encoding//src/main/webapp/pages/user-list.jsp=UTF-8
