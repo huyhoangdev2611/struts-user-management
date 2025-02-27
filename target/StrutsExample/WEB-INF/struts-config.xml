@@ -6,39 +6,29 @@
 <struts-config>
 
 	<form-beans>
-		<form-bean
-			name="userForm"
-			type="com.example.common.form.UserForm"/>
-	
+		<form-bean name="userForm"
+			type="com.example.common.form.UserForm" />
+
 	</form-beans>
 
 	<action-mappings>
-	
-		<action
-			path="/LoginPage"
+
+		<action path="/LoginPage"
 			type="org.apache.struts.actions.ForwardAction"
-			parameter="/pages/multi-language.jsp"/>
-		
-		<action
-			path="/Submit"
-			type="com.example.common.action.LanguageSelectAction"
-			name="userForm"
-			validate="true"
-			input="/pages/multi-language.jsp"
-			>
-			<forward name="success" path="/pages/multi-language.jsp"/>
+			parameter="/pages/multi-language.jsp" />
+
+		<action path="/Submit"
+			type="com.example.common.action.LanguageSelectAction" name="userForm"
+			validate="true" input="/pages/multi-language.jsp">
+			<forward name="success" path="/pages/multi-language.jsp" />
 		</action>
-		
-		<action
-			path="/Locale"
-			type="com.example.common.action.LanguageSelectAction"
-			name="userForm"
-			parameter="method"
-			validate="false"
-			>
-			<forward name="success" path="/pages/multi-language.jsp"/>
+
+		<action path="/Locale"
+			type="com.example.common.action.LanguageSelectAction" name="userForm"
+			parameter="method" validate="false">
+			<forward name="success" path="/pages/multi-language.jsp" />
 		</action>
-		
+
 	</action-mappings>
 
 	<message-resources

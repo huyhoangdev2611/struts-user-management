@@ -6,12 +6,24 @@ import com.example.common.form.UserForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.*;
+import org.apache.struts.actions.DispatchAction;
 
-public class UserCreateAction extends Action {
+import java.util.List;
 
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-                                 HttpServletRequest request, HttpServletResponse response) {
+public class UserAction extends DispatchAction {
+
+    public ActionForward list(ActionMapping mapping, ActionForm form,
+                              HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("userList", UserDAO.getAllUsers());
+        return mapping.findForward("list");
+    }
+
+    public ActionForward create(ActionMapping mapping, ActionForm form,
+                                HttpServletRequest request, HttpServletResponse response) {
+        if (request.getMethod().equalsIgnoreCase("GET")) {
+            return mapping.findForward("create");
+        }
+
         UserForm userForm = (UserForm) form;
         User user = new User();
         user.setName(userForm.getName());
@@ -20,8 +32,8 @@ public class UserCreateAction extends Action {
         if (UserDAO.insertUser(user)) {
             request.setAttribute("message", "User added successfully!");
             return mapping.findForward("success");
-        } 
-        
+        }
+
         request.setAttribute("message", "Failed to add user.");
         return mapping.findForward("failure");
     }
